@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080b08">
+<meta name="description" content="Nexxa: assistente inteligente que automatiza o atendimento pelo WhatsApp, ajuda a agendar consultas e envia lembretes para consultórios médicos.">
+<title>Nexxa — Atendimento inteligente para consultórios</title>
+<style>
+:root{--bg:#070907;--panel:#101510;--panel2:#141b14;--green:#83f34b;--green2:#b1ff82;--white:#f5f7f3;--muted:#a9b2a6;--line:#263126;--radius:20px;--max:1160px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:86px}body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button,a{ -webkit-tap-highlight-color:transparent}.container{width:min(var(--max),calc(100% - 40px));margin:auto}.topbar{position:sticky;top:0;z-index:20;background:rgba(7,9,7,.86);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.07)}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:10px;font-size:27px;font-weight:800;letter-spacing:-1.5px}.brand-mark{width:29px;height:34px;border:5px solid var(--green);border-bottom:0;border-radius:18px 18px 4px 4px;position:relative;display:inline-block}.brand-mark:after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:var(--green);right:-7px;bottom:-5px}.brand span:last-child{color:#fff}.navlinks{display:flex;gap:28px;color:#c5cdc2;font-size:14px}.navlinks a:hover{color:var(--green)}.nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 19px;border-radius:999px;background:var(--green);color:#081006;font-weight:750;border:1px solid var(--green);transition:.2s;cursor:pointer}.nav-cta{font-size:14px;padding:11px 17px}.btn:hover,.nav-cta:hover{background:var(--green2);transform:translateY(-2px)}.btn.secondary{background:transparent;color:var(--white);border-color:#485448}.btn.secondary:hover{border-color:var(--green);color:var(--green)}.menu-btn{display:none;background:none;color:white;border:1px solid var(--line);border-radius:10px;padding:8px 11px}.hero{position:relative;overflow:hidden;padding:92px 0 82px;background:radial-gradient(ellipse at 78% 28%,rgba(91,255,39,.11),transparent 35%),radial-gradient(ellipse at 12% 0%,rgba(91,255,39,.07),transparent 30%)}.hero:before,.hero:after{content:"";position:absolute;width:380px;height:380px;border:1px solid rgba(131,243,75,.25);border-radius:48%;transform:rotate(32deg);pointer-events:none}.hero:before{left:-300px;top:-190px}.hero:after{right:-300px;bottom:-240px}.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:60px;align-items:center;position:relative;z-index:1}.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:7px 12px;border:1px solid #2a4226;background:rgba(131,243,75,.06);border-radius:999px;color:var(--green);font-size:12px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase}.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}h1{font-size:clamp(42px,5.4vw,70px);line-height:1.04;letter-spacing:-3px;margin:22px 0 20px;max-width:700px}h1 em{font-style:normal;color:var(--green)}.hero p{font-size:18px;color:#bdc7b9;max-width:610px;margin:0 0 28px}.actions{display:flex;gap:12px;flex-wrap:wrap}.micro{font-size:12px!important;color:#879184!important;margin-top:15px!important}.visual{position:relative;min-height:400px;display:grid;place-items:center}.orb{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(131,243,75,.16),rgba(131,243,75,.03) 55%,transparent 72%);filter:blur(2px)}.phone{width:min(330px,90%);background:linear-gradient(150deg,#1a211a,#0c100c);border:1px solid #3b4938;border-radius:29px;padding:15px;box-shadow:0 35px 90px #000b,0 0 50px #65e83912;position:relative;transform:rotate(2deg)}.phone-top{display:flex;align-items:center;gap:10px;padding:5px 4px 15px;border-bottom:1px solid #2a3329}.avatar{width:35px;height:35px;background:#1d3218;border:1px solid #416d32;color:var(--green);border-radius:50%;display:grid;place-items:center;font-weight:800}.phone-top strong{font-size:13px;display:block}.phone-top small{font-size:11px;color:var(--green)}.chat{padding:18px 2px 6px;display:grid;gap:12px}.bubble{font-size:12px;padding:11px 13px;border-radius:13px;max-width:88%;color:#e5ece2;background:#202820}.bubble.right{justify-self:end;background:#23451d;border:1px solid #38642c}.bubble small{display:block;color:#a4b79b;font-size:9px;margin-top:5px;text-align:right}.appt{margin-top:2px;border:1px solid #385a2e;border-radius:12px;padding:12px;background:#152014}.appt b{display:block;font-size:12px}.appt span{font-size:11px;color:#b9c8b2}.status{display:flex;align-items:center;gap:8px;color:#c9d5c3;font-size:11px;margin-top:14px}.status i{width:7px;height:7px;background:var(--green);border-radius:50%}.float-card{position:absolute;background:#101710;border:1px solid #354633;border-radius:14px;padding:12px 15px;box-shadow:0 15px 35px #0008;font-size:12px}.float-card b{display:block;color:var(--green);font-size:18px}.float-card.one{right:-1px;top:45px}.float-card.two{left:-4px;bottom:44px}.stats{border-top:1px solid #20271f;border-bottom:1px solid #20271f;background:#0b0f0b}.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);padding:24px 0}.stat{text-align:center;padding:0 20px;border-right:1px solid #263026}.stat:last-child{border:0}.stat strong{display:block;font-size:15px}.stat span{font-size:12px;color:var(--muted)}section{padding:88px 0}.section-head{text-align:center;max-width:720px;margin:0 auto 42px}.kicker{font-size:12px;color:var(--green);letter-spacing:2px;text-transform:uppercase;font-weight:800}.section-head h2,.split h2{font-size:clamp(31px,4vw,46px);letter-spacing:-1.7px;line-height:1.12;margin:12px 0}.section-head p,.split p{color:var(--muted);font-size:16px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.card{padding:25px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(145deg,#111611,#0b0e0b);transition:.2s}.card:hover{transform:translateY(-4px);border-color:#537844}.iconbox{width:43px;height:43px;border-radius:13px;background:#1a2a16;border:1px solid #35522c;display:grid;place-items:center;color:var(--green);font-size:20px;margin-bottom:19px}.card h3{margin:0 0 8px;font-size:19px}.card p{margin:0;color:var(--muted);font-size:14px}.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}.split-visual{background:radial-gradient(ellipse at 50% 40%,#183016,transparent 70%),#0c100c;border:1px solid var(--line);border-radius:24px;padding:28px}.step-list{display:grid;gap:18px;margin-top:28px}.step{display:grid;grid-template-columns:43px 1fr;gap:14px}.step-num{width:40px;height:40px;border-radius:12px;background:#1c2c17;color:var(--green);display:grid;place-items:center;font-weight:800;border:1px solid #34532a}.step h3{margin:0 0 4px;font-size:16px}.step p{margin:0;font-size:14px}.dashboard{border:1px solid #344232;background:#0b100b;border-radius:16px;overflow:hidden}.dash-head{padding:14px 17px;border-bottom:1px solid #283226;display:flex;justify-content:space-between;align-items:center;font-size:12px}.live{color:var(--green);font-size:10px}.dash-body{padding:18px}.dash-label{color:#9ca997;font-size:11px}.dash-number{font-size:28px;font-weight:800;margin:4px 0 14px}.bars{height:95px;display:flex;align-items:end;gap:8px;border-bottom:1px solid #263026;padding:0 8px}.bars i{display:block;flex:1;border-radius:5px 5px 0 0;background:linear-gradient(#8bf55a,#315e22);height:var(--h)}.dash-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #20281f;font-size:12px}.dash-row:last-child{border:0}.dash-row span:last-child{color:var(--green)}.notice{padding:14px 16px;border-radius:12px;background:#121a11;border:1px solid #2c4027;color:#b9c7b2;font-size:12px;margin-top:15px}.notice strong{color:var(--green)}.pricing{background:linear-gradient(180deg,#080b08,#0c110b 55%,#080b08)}.price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:850px;margin:auto}.price-card{padding:28px;border-radius:22px;border:1px solid var(--line);background:#0c100c}.price-card.featured{border-color:var(--green);box-shadow:0 0 35px #6eea2910;position:relative}.popular{position:absolute;top:17px;right:17px;font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#071005;background:var(--green);border-radius:99px;padding:5px 9px;font-weight:800}.price-card h3{margin:0;font-size:20px}.price-card .desc{color:var(--muted);font-size:13px;min-height:42px}.price{font-size:39px;font-weight:850;letter-spacing:-1.5px;margin:16px 0 0}.price small{font-size:13px;color:var(--muted);font-weight:500;letter-spacing:0}.price-card ul{list-style:none;padding:0;margin:22px 0;display:grid;gap:11px;color:#d5ddd1;font-size:14px}.price-card li:before{content:"✓";color:var(--green);font-weight:900;margin-right:10px}.price-card .btn{width:100%}.fineprint{text-align:center;color:#7f897b;font-size:11px;margin-top:18px}.faq{max-width:820px;margin:auto;display:grid;gap:10px}.faq-item{border:1px solid var(--line);border-radius:14px;background:#0e120e;overflow:hidden}.faq-question{width:100%;text-align:left;display:flex;justify-content:space-between;gap:20px;padding:18px 20px;background:none;border:0;color:var(--white);font-weight:700;cursor:pointer}.faq-question span:last-child{color:var(--green);font-size:21px;line-height:1}.faq-answer{display:none;padding:0 20px 19px;color:var(--muted);font-size:14px}.faq-item.open .faq-answer{display:block}.faq-item.open .faq-question span:last-child{transform:rotate(45deg)}.cta-section{padding-top:30px}.cta-box{position:relative;overflow:hidden;padding:50px;border:1px solid #395a2e;border-radius:26px;background:radial-gradient(ellipse at 90% 20%,#1b4015,transparent 45%),#0e150d;display:flex;align-items:center;justify-content:space-between;gap:30px}.cta-box h2{font-size:clamp(29px,4vw,42px);line-height:1.12;letter-spacing:-1.5px;margin:0 0 12px}.cta-box p{color:#b5c2ae;margin:0;max-width:600px}.footer{border-top:1px solid #202820;padding:28px 0 34px;color:#8e998a;font-size:12px}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px}.footer .brand{font-size:21px}.footer .brand-mark{transform:scale(.78);transform-origin:left center;margin-right:-5px}.modal-backdrop{position:fixed;inset:0;background:#000b;z-index:60;display:none;align-items:center;justify-content:center;padding:20px}.modal-backdrop.show{display:flex}.modal{width:min(520px,100%);background:#101610;border:1px solid #354833;border-radius:22px;padding:26px;box-shadow:0 25px 80px #000c;max-height:90vh;overflow:auto}.modal-head{display:flex;justify-content:space-between;gap:15px;align-items:start}.modal h2{margin:0 0 6px;font-size:25px}.modal p{color:var(--muted);font-size:13px;margin:0 0 20px}.close{background:#1a2219;color:white;border:1px solid #354433;border-radius:10px;padding:6px 11px;cursor:pointer}.field{display:grid;gap:6px;margin-bottom:14px}.field label{font-size:12px;color:#d7dfd3;font-weight:650}.field input,.field select,.field textarea{width:100%;border:1px solid #344132;background:#080c08;color:white;border-radius:10px;padding:12px 13px;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px #83f34b18}.field textarea{resize:vertical;min-height:80px}.form-error{font-size:12px;color:#ff9c8d;display:none;margin-bottom:10px}.form-success{display:none;padding:13px;border:1px solid #34562c;background:#142012;color:#d8efd0;border-radius:12px;font-size:13px;margin-top:13px}.modal .btn{width:100%}.mobile-menu{display:none}
+@media(max-width:850px){.navlinks{display:none}.menu-btn{display:block}.nav-cta{display:none}.mobile-menu{padding:0 0 16px;gap:14px;flex-direction:column;color:#d1dacd}.mobile-menu.show{display:flex}.hero{padding:65px 0 58px}.hero-grid,.split{grid-template-columns:1fr;gap:34px}.hero-grid{gap:20px}.visual{min-height:370px}.cards{grid-template-columns:1fr}.card{padding:22px}.split-visual{order:2}.price-grid{grid-template-columns:1fr;max-width:520px}.stat{padding:0 9px}.stat strong{font-size:12px}.stat span{font-size:10px}.cta-box{padding:32px;align-items:flex-start;flex-direction:column}section{padding:68px 0}.section-head{margin-bottom:30px}.footer-inner{align-items:flex-start;flex-direction:column}}
+@media(max-width:480px){.container{width:min(var(--max),calc(100% - 28px))}.brand{font-size:24px}.hero h1{letter-spacing:-2px}.hero p{font-size:16px}.visual{min-height:340px}.phone{width:285px}.float-card.one{right:0;top:20px}.float-card.two{left:0;bottom:24px}.stats-grid{padding:18px 0}.stat strong{font-size:11px}.stat span{font-size:9px}.cta-box{padding:25px}.price{font-size:35px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="#inicio" aria-label="Nexxa, início"><i class="brand-mark" aria-hidden="true"></i><span>nexxa</span></a>
+    <nav class="navlinks" aria-label="Navegação principal"><a href="#como-funciona">Como funciona</a><a href="#recursos">Recursos</a><a href="#planos">Planos</a><a href="#duvidas">Dúvidas</a></nav>
+    <button class="nav-cta" data-open-modal>Solicitar demonstração ↗</button>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+  <nav class="container mobile-menu" id="mobileMenu" aria-label="Menu mobile"><a href="#como-funciona">Como funciona</a><a href="#recursos">Recursos</a><a href="#planos">Planos</a><a href="#duvidas">Dúvidas</a><a href="#contato" data-open-modal>Solicitar demonstração ↗</a></nav>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> Atendimento inteligente para clínicas</div>
+      <h1>Seu consultório merece um atendimento <em>sempre disponível.</em></h1>
+      <p>A Nexxa é uma assistente inteligente que atende pacientes pelo WhatsApp, responde dúvidas administrativas e ajuda a transformar conversas em consultas agendadas — mesmo quando sua equipe está ocupada.</p>
+      <div class="actions"><button class="btn" data-open-modal>Quero ver uma demonstração <span>↗</span></button><a class="btn secondary" href="#como-funciona">Entenda como funciona ↓</a></div>
+      <p class="micro">Feita para apoiar a equipe do consultório — não para substituir o cuidado humano.</p>
+    </div>
+    <div class="visual" aria-label="Prévia ilustrativa de uma conversa entre paciente e assistente">
+      <div class="orb"></div>
+      <div class="phone">
+        <div class="phone-top"><div class="avatar">N</div><div><strong>Nexxa · Atendimento</strong><small>● Assistente online</small></div></div>
+        <div class="chat">
+          <div class="bubble">Olá! 👋 Como podemos ajudar você hoje?</div>
+          <div class="bubble right">Gostaria de marcar uma consulta.</div>
+          <div class="bubble">Claro! Posso ajudar com o agendamento. Qual especialidade você procura?<small>Resposta automática</small></div>
+          <div class="bubble right">Dermatologia, por favor.</div>
+          <div class="appt"><b>Vamos encontrar um horário</b><span>Preferências e disponibilidade são consultadas conforme a agenda da clínica.</span></div>
+        </div>
+        <div class="status"><i></i> Atendimento administrativo automatizado</div>
+      </div>
+      <div class="float-card one"><b>24/7</b>Atendimento disponível</div>
+      <div class="float-card two"><b>+ organização</b>Menos tarefas repetitivas</div>
+    </div>
+  </div>
+</section>
+
+<div class="stats"><div class="container stats-grid"><div class="stat"><strong>WhatsApp integrado</strong><span>Conversas em um canal familiar</span></div><div class="stat"><strong>Agendamento assistido</strong><span>Mais organização para a equipe</span></div><div class="stat"><strong>Equipe no controle</strong><span>Encaminhamento para atendimento humano</span></div></div></div>
+
+<section id="problema">
+  <div class="container">
+    <div class="section-head"><div class="kicker">O desafio diário</div><h2>Não deixe uma mensagem sem resposta virar uma oportunidade perdida.</h2><p>Enquanto a recepção atende presencialmente, o WhatsApp continua recebendo mensagens. A Nexxa ajuda a organizar esse fluxo para que sua equipe possa dedicar atenção ao que realmente precisa de pessoas.</p></div>
+    <div class="cards">
+      <article class="card"><div class="iconbox">◷</div><h3>Demora nas respostas</h3><p>Respostas automáticas para dúvidas administrativas comuns, inclusive fora do horário configurado para a equipe.</p></article>
+      <article class="card"><div class="iconbox">▦</div><h3>Agenda mais organizada</h3><p>Ajuda no processo de agendamento e envia lembretes para que pacientes possam confirmar ou solicitar alteração.</p></article>
+      <article class="card"><div class="iconbox">↻</div><h3>Conversas esquecidas</h3><p>Follow-ups configuráveis ajudam a retomar contatos que não concluíram o atendimento, respeitando as regras definidas pela clínica.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona">
+  <div class="container split">
+    <div>
+      <div class="kicker">Simples de entender</div><h2>Como a Nexxa funciona na prática?</h2><p>A Nexxa conecta o WhatsApp do consultório a uma assistente configurada com as informações administrativas da clínica e às ferramentas de agenda escolhidas para a implantação.</p>
+      <div class="step-list">
+        <div class="step"><div class="step-num">01</div><div><h3>O paciente chama no WhatsApp</h3><p>A conversa chega pelo canal conectado ao sistema.</p></div></div>
+        <div class="step"><div class="step-num">02</div><div><h3>A assistente responde</h3><p>Usa as informações aprovadas pela clínica para responder sobre horários, endereço, convênios, preços e especialidades.</p></div></div>
+        <div class="step"><div class="step-num">03</div><div><h3>Ajuda com o agendamento</h3><p>Conforme a integração configurada, consulta disponibilidades e auxilia na marcação ou alteração da consulta.</p></div></div>
+        <div class="step"><div class="step-num">04</div><div><h3>A equipe acompanha</h3><p>Quando necessário, a conversa é encaminhada para uma pessoa. A equipe acompanha conversas, agenda e indicadores no painel.</p></div></div>
+      </div>
+    </div>
+    <div class="split-visual">
+      <div class="dashboard">
+        <div class="dash-head"><strong>Visão geral · Painel Nexxa</strong><span class="live">● VISUAL ILUSTRATIVO</span></div>
+        <div class="dash-body">
+          <span class="dash-label">Atividade de atendimento</span><div class="dash-number">Tudo em um só lugar</div>
+          <div class="bars" aria-label="Gráfico ilustrativo de atividade"><i style="--h:35%"></i><i style="--h:55%"></i><i style="--h:43%"></i><i style="--h:76%"></i><i style="--h:60%"></i><i style="--h:92%"></i><i style="--h:70%"></i><i style="--h:84%"></i></div>
+          <div class="dash-row"><span>Conversas recebidas</span><span>Visão consolidada</span></div><div class="dash-row"><span>Agenda do dia</span><span>Organizada</span></div><div class="dash-row"><span>Casos para a equipe</span><span>Encaminhados</span></div>
+        </div>
+      </div>
+      <div class="notice"><strong>Importante:</strong> a interface acima é uma prévia ilustrativa. Recursos disponíveis dependem da configuração e das integrações implantadas para cada consultório.</div>
+    </div>
+  </div>
+</section>
+
+<section id="recursos">
+  <div class="container">
+    <div class="section-head"><div class="kicker">O que está incluído</div><h2>Mais do que responder mensagens.</h2><p>Uma camada de automação para reduzir tarefas repetitivas e dar mais previsibilidade ao atendimento administrativo.</p></div>
+    <div class="cards">
+      <article class="card"><div class="iconbox">✳</div><h3>IA configurada para sua clínica</h3><p>Respostas baseadas nas informações, no tom de voz e nas regras fornecidas pelo consultório.</p></article>
+      <article class="card"><div class="iconbox">▣</div><h3>Agendamento de consultas</h3><p>Ajuda a consultar horários e conduzir o paciente pelo processo de marcação, conforme a agenda integrada.</p></article>
+      <article class="card"><div class="iconbox">◉</div><h3>Lembretes automáticos</h3><p>Mensagens programadas para lembrar o paciente da consulta e facilitar a confirmação.</p></article>
+      <article class="card"><div class="iconbox">↗</div><h3>Retomada de conversas</h3><p>Follow-ups configuráveis para contatos que pararam antes de concluir o atendimento.</p></article>
+      <article class="card"><div class="iconbox">▤</div><h3>Painel de acompanhamento</h3><p>Visualização de conversas, agenda, contatos e indicadores de atendimento em um painel web.</p></article>
+      <article class="card"><div class="iconbox">♡</div><h3>Passagem para atendimento humano</h3><p>Quando a situação exigir avaliação humana ou a assistente não tiver segurança para responder, a equipe pode assumir.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="planos">
+  <div class="container">
+    <div class="section-head"><div class="kicker">Planos de referência</div><h2>Comece com o que sua clínica precisa.</h2><p>Valores previstos no planejamento inicial do produto. A proposta final depende do volume, das integrações e do escopo de implantação.</p></div>
+    <div class="price-grid">
+      <article class="price-card"><h3>Essencial</h3><p class="desc">Para consultórios que querem automatizar o primeiro atendimento.</p><div class="price">R$ 297 <small>/ mês</small></div><ul><li>1 número de WhatsApp</li><li>Assistente de IA para dúvidas administrativas</li><li>Fluxo de agendamento</li><li>Lembretes de consulta</li><li>Até 1.000 conversas, conforme plano previsto</li></ul><button class="btn secondary" data-plan="Essencial" data-open-modal>Tenho interesse</button></article>
+      <article class="price-card featured"><span class="popular">Mais recursos</span><h3>Clínica</h3><p class="desc">Para equipes que precisam de mais acompanhamento e automação.</p><div class="price">R$ 497 <small>/ mês</small></div><ul><li>Recursos do plano Essencial</li><li>Até 3 profissionais</li><li>Follow-ups configuráveis</li><li>Relatórios de atendimento</li><li>Maior volume de conversas, conforme proposta</li></ul><button class="btn" data-plan="Clínica" data-open-modal>Quero conhecer este plano ↗</button></article>
+    </div>
+    <p class="fineprint">Preços estimados do plano de projeto, não uma oferta comercial definitiva. Custos de APIs, integrações e configuração podem alterar o valor final. Implantação inicial estimada à parte: R$ 300 a R$ 500.</p>
+  </div>
+</section>
+
+<section id="duvidas">
+  <div class="container">
+    <div class="section-head"><div class="kicker">Perguntas frequentes</div><h2>O que você precisa saber.</h2><p>Transparência sobre o papel da Nexxa e o que é necessário para começar.</p></div>
+    <div class="faq">
+      <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>A Nexxa substitui a secretária?</span><span>＋</span></button><div class="faq-answer">Não. A Nexxa automatiza tarefas administrativas repetitivas e ajuda a organizar as conversas. A equipe continua essencial para situações que exigem contexto, acolhimento ou decisão humana.</div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>A IA dá diagnóstico ou recomenda tratamentos?</span><span>＋</span></button><div class="faq-answer">Não. O escopo é administrativo: informações da clínica, encaminhamento e apoio ao agendamento. A Nexxa não deve diagnosticar, prescrever medicamentos nem substituir orientação de profissionais de saúde.</div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>Preciso usar um número de WhatsApp?</span><span>＋</span></button><div class="faq-answer">Sim, o atendimento é pensado para funcionar pelo WhatsApp do consultório, por meio de uma integração apropriada. A viabilidade de conectar o número atual depende da configuração da conta e da API utilizada.</div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>Como funciona o agendamento?</span><span>＋</span></button><div class="faq-answer">A assistente conduz a conversa e, quando a integração com a agenda estiver configurada, pode consultar horários disponíveis e auxiliar na marcação. O fluxo exato é definido com cada clínica.</div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>Como os dados dos pacientes são tratados?</span><span>＋</span></button><div class="faq-answer">Dados de saúde exigem cuidado especial. Antes de entrar em operação, a implantação precisa definir acessos, segurança, política de privacidade, bases legais e responsabilidades conforme a LGPD. Não envie dados reais de pacientes por este formulário de demonstração.</div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>A Nexxa já está pronta para contratar?</span><span>＋</span></button><div class="faq-answer">Esta página apresenta a proposta do produto. Recursos e integrações precisam ser validados e implantados antes de serem oferecidos como disponíveis. Solicite uma conversa para entender o estágio atual e o escopo possível.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contato">
+  <div class="container"><div class="cta-box"><div><div class="kicker">Vamos conversar?</div><h2>Descubra como a Nexxa pode ajudar sua clínica.</h2><p>Conte um pouco sobre seu consultório e solicite uma demonstração. Vamos entender seu fluxo de atendimento e avaliar a melhor configuração.</p></div><button class="btn" data-open-modal>Solicitar demonstração ↗</button></div></div>
+</section>
+</main>
+
+<footer class="footer"><div class="container footer-inner"><a class="brand" href="#inicio"><i class="brand-mark" aria-hidden="true"></i><span>nexxa</span></a><span>Assistente inteligente para atendimento administrativo.</span><span>© <span id="year"></span> Nexxa. Todos os direitos reservados.</span></div></footer>
+
+<div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <div class="modal-head"><div><h2 id="modalTitle">Solicite uma demonstração</h2><p>Preencha os dados profissionais para iniciarmos a conversa. Não inclua informações de pacientes.</p></div><button class="close" id="closeModal" aria-label="Fechar">✕</button></div>
+    <form id="demoForm">
+      <div class="field"><label for="name">Seu nome</label><input id="name" name="name" autocomplete="name" required placeholder="Como podemos chamar você?"></div>
+      <div class="field"><label for="clinic">Nome do consultório ou clínica</label><input id="clinic" name="clinic" required placeholder="Nome da clínica"></div>
+      <div class="field"><label for="email">E-mail profissional</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="voce@clinica.com.br"></div>
+      <div class="field"><label for="specialty">Especialidade principal</label><select id="specialty" name="specialty" required><option value="">Selecione uma opção</option><option>Clínica geral</option><option>Dermatologia</option><option>Odontologia</option><option>Psicologia</option><option>Cardiologia</option><option>Ginecologia</option><option>Outra especialidade</option></select></div>
+      <div class="field"><label for="plan">Plano de interesse</label><select id="plan" name="plan"><option value="Ainda quero entender">Ainda quero entender</option><option>Essencial</option><option>Clínica</option></select></div>
+      <div class="field"><label for="challenge">Qual é o maior desafio no atendimento? (opcional)</label><textarea id="challenge" name="challenge" placeholder="Ex.: demora para responder, agendamentos, lembretes..."></textarea></div>
+      <div class="form-error" id="formError" role="alert">Confira os campos obrigatórios e tente novamente.</div>
+      <button class="btn" type="submit">Preparar solicitação ↗</button>
+      <div class="form-success" id="formSuccess" role="status"></div>
+    </form>
+  </div>
+</div>
+
+<script>
+/* CONFIGURAÇÃO OPCIONAL:
+   Para encaminhar o formulário ao WhatsApp da empresa, preencha WHATSAPP_NUMBER
+   com o DDI + DDD + número, somente dígitos. Exemplo fictício: "5511999999999".
+   Sem número configurado, o site prepara uma mensagem para copiar.
+*/
+const WHATSAPP_NUMBER = "";
+const $ = (s, root=document) => root.querySelector(s);
+$("#year").textContent = new Date().getFullYear();
+
+const backdrop = $("#modalBackdrop");
+function openModal(plan) {
+  if (plan) $("#plan").value = plan;
+  backdrop.classList.add("show");
+  document.body.style.overflow = "hidden";
+  setTimeout(() => $("#name").focus(), 60);
+}
+function closeModal() {
+  backdrop.classList.remove("show");
+  document.body.style.overflow = "";
+}
+document.querySelectorAll("[data-open-modal]").forEach(el => el.addEventListener("click", e => {
+  const plan = e.currentTarget.dataset.plan;
+  openModal(plan);
+  $("#mobileMenu").classList.remove("show");
+  $("#menuBtn").setAttribute("aria-expanded","false");
+}));
+$("#closeModal").addEventListener("click", closeModal);
+backdrop.addEventListener("click", e => { if (e.target === backdrop) closeModal(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+$("#menuBtn").addEventListener("click", () => {
+  const menu = $("#mobileMenu");
+  const isOpen = menu.classList.toggle("show");
+  $("#menuBtn").setAttribute("aria-expanded", String(isOpen));
+});
+$("#mobileMenu").querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+  $("#mobileMenu").classList.remove("show");
+  $("#menuBtn").setAttribute("aria-expanded","false");
+}));
+
+document.querySelectorAll(".faq-question").forEach(btn => btn.addEventListener("click", () => {
+  const item = btn.closest(".faq-item");
+  const willOpen = !item.classList.contains("open");
+  item.classList.toggle("open", willOpen);
+  btn.setAttribute("aria-expanded", String(willOpen));
+}));
+
+$("#demoForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const form = e.currentTarget;
+  const error = $("#formError");
+  const success = $("#formSuccess");
+  error.style.display = "none";
+  success.style.display = "none";
+  if (!form.reportValidity()) { error.style.display = "block"; return; }
+  const data = Object.fromEntries(new FormData(form).entries());
+  const message = [
+    "Olá! Gostaria de saber mais sobre a Nexxa e solicitar uma demonstração.",
+    "",
+    `Nome: ${data.name}`,
+    `Clínica: ${data.clinic}`,
+    `E-mail: ${data.email}`,
+    `Especialidade: ${data.specialty}`,
+    `Plano de interesse: ${data.plan}`,
+    data.challenge ? `Desafio: ${data.challenge}` : ""
+  ].filter(Boolean).join("\n");
+  if (WHATSAPP_NUMBER.trim()) {
+    const url = `https://wa.me/${WHATSAPP_NUMBER.trim()}?text=${encodeURIComponent(message)}`;
+    success.innerHTML = "Solicitação preparada. O WhatsApp será aberto para você enviar a mensagem. <br><br><a class='btn' style='width:auto' target='_blank' rel='noopener' href='" + url + "'>Abrir WhatsApp ↗</a>";
+  } else {
+    success.textContent = "Formulário validado! Para receber contatos automaticamente, conecte este formulário a um serviço de formulários ou configure o número de WhatsApp da Nexxa no código. Por enquanto, copie a mensagem abaixo e envie pelo canal da empresa.";
+    const copy = document.createElement("button");
+    copy.type = "button"; copy.className = "btn"; copy.style.marginTop = "12px"; copy.textContent = "Copiar solicitação";
+    copy.addEventListener("click", async () => {
+      try { await navigator.clipboard.writeText(message); copy.textContent = "Mensagem copiada ✓"; }
+      catch { const area=document.createElement("textarea"); area.value=message; success.appendChild(area); area.select(); document.execCommand("copy"); area.remove(); copy.textContent="Mensagem copiada ✓"; }
+    });
+    success.appendChild(document.createElement("br"));
+    success.appendChild(copy);
+  }
+  success.style.display = "block";
+});
+</script>
+</body>
+</html>
